@@ -16,6 +16,10 @@ class Spree::ActiveShippingConfiguration < Spree::Preferences::Configuration
 
   preference :canada_post_login, :string, default: "canada_post_login"
 
+  preference :canada_post_pws_username, :string, default: "api_key_username"
+  preference :canada_post_pws_password, :string, default: "api_key_password"
+  preference :canada_post_pws_customer_number, :string, default: "customer_number"
+
   preference :australia_post_login, :string, default: "australia_post_api_key"
 
   preference :units, :string, default: "imperial"
