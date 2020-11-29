@@ -1,5 +1,5 @@
 # handle shipping errors gracefully during order update
-module SpreeActiveShip::Spree::OrdersControllerDecorator
+module SpreeActiveShip::OrdersControllerDecorator
   def self.prepended(base)
     base.rescue_from Spree::ShippingError, with: :handle_shipping_error
   end
@@ -10,4 +10,4 @@ module SpreeActiveShip::Spree::OrdersControllerDecorator
   end
 end
 
-::Spree::OrdersController.prepend(SpreeActiveShip::Spree::OrdersControllerDecorator)
+Spree::OrdersController.prepend(SpreeActiveShip::OrdersControllerDecorator)

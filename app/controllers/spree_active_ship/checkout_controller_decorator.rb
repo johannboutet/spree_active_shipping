@@ -1,5 +1,5 @@
 # handle shipping errors gracefully during checkout
-module SpreeActiveShip::Spree::CheckoutControllerDecorator
+module SpreeActiveShip::CheckoutControllerDecorator
   def self.prepended(base)
     base.rescue_from Spree::ShippingError, with: :handle_shipping_error
   end
@@ -10,4 +10,4 @@ module SpreeActiveShip::Spree::CheckoutControllerDecorator
   end
 end
 
-::Spree::CheckoutController.prepend(SpreeActiveShip::Spree::CheckoutControllerDecorator)
+Spree::CheckoutController.prepend(SpreeActiveShip::CheckoutControllerDecorator)

@@ -1,4 +1,4 @@
-module SpreeActiveShip::Spree::StockLocationDecorator
+module SpreeActiveShip::StockLocationDecorator
   def self.prepended(base)
     base.validates_presence_of :address1, :city, :zipcode, :country_id
     base.validate :state_id_or_state_name_is_present
@@ -11,4 +11,4 @@ module SpreeActiveShip::Spree::StockLocationDecorator
   end
 end
 
-::Spree::StockLocation.prepend(SpreeActiveShip::Spree::StockLocationDecorator)
+Spree::StockLocation.prepend(SpreeActiveShip::StockLocationDecorator)
